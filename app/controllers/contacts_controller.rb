@@ -25,7 +25,15 @@ class ContactsController < ApplicationController
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
     end
-    # JSON.dump({ key: SecureRandom.uuid, creation_time: Time.now.to_s })
+  end
+
+  def access
+    @contact = Contact.find_by_key(params[:key])
+    @access = Access.new
+    @access.url = params[:url]
+    @access.key = params[:key]
+    @access.contact = @contact
+    @access.save
   end
 
   # GET /contacts

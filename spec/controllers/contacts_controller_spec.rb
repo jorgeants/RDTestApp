@@ -20,11 +20,20 @@ require 'rails_helper'
 
 RSpec.describe ContactsController, type: :controller do
 
-  context "POST - Create Cookie" do
+  context "Post for Create Cookie" do
     it "#create_cookie" do
       expect {
         post :cookie, params: {}, session: valid_session
       }.to change(Contact, :count).by(1)
+    end
+  end
+
+  context "Post for create access" do
+    let!(:contact) { FactoryGirl.create(:contact) }
+    it "#create_access" do
+      expect {
+        post :access, params: {url: "http://www.example.com.br/", key: contact.key}, session: valid_session
+      }.to change(Access, :count).by(1)
     end
   end
 

@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170617174419) do
+ActiveRecord::Schema.define(version: 20170617201227) do
+
+  create_table "accesses", force: :cascade do |t|
+    t.string "url"
+    t.integer "contact_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "key"
+    t.index ["contact_id"], name: "index_accesses_on_contact_id"
+  end
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
