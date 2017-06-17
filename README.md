@@ -1,24 +1,37 @@
-# README
+# RDTestApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The application that show users that accessed the partners sites
 
-Things you may want to cover:
+## Dependecies
 
-* Ruby version
+* ruby 2.3.4
+* bundler
+* rails 5.1.1
+* sqlite
 
-* System dependencies
+## Prepare
 
-* Configuration
+Clone this repository and execute the comands in your terminal:
 
-* Database creation
+```
+bundle install
+rails db:create db:migrate
+```
 
-* Database initialization
+## Up the server
 
-* How to run the test suite
+For run the application and view in your browser, run this:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+rails s
+```
 
-* Deployment instructions
+## Tests
 
-* ...
+This application use [Rspec](http://rspec.info) and [Capybara](http://teamcapybara.github.io/capybara/) for tests.
+Run with the command:
+
+```
+rspec spec
+```
+
