@@ -6,8 +6,7 @@ The application that show users that accessed the partners sites
 
 * Ruby version 2.3.4
 * Bundler
-* Rails version 5.1.1
-* Sqlite
+* PostgreSQL version 9.2 or above
 
 ## Prepare
 
