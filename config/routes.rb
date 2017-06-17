@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+	post '/contacts/cookie', to: 'contacts#cookie', :defaults => { :format => 'json' }
+  resources :contacts
+  root to: 'application#index'
+
 end
