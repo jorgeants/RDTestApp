@@ -5,7 +5,10 @@ class ContactsController < ApplicationController
 
   def cookie
     response.set_cookie(COOKIE_NAME, cookie_data)
-    cookie_data
+    respond_to do |format|
+      format.html
+      format.json { render json: cookie_data}
+    end
   end
 
   def cookie_data
@@ -16,14 +19,8 @@ class ContactsController < ApplicationController
     key = SecureRandom.uuid
     @contact = Contact.new
     @contact.key = key
-    respond_to do |format|
-      if @contact.save
-        format.html
-        format.json { render json: @contact.to_json, status: :created }
-      else
-        format.html
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
+    if @contact.save
+      @contact.to_json
     end
   end
 
