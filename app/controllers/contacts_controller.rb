@@ -33,6 +33,11 @@ class ContactsController < ApplicationController
     @access.save
   end
 
+  def save_contact
+    @contact = Contact.find_by_key(params[:key])
+    @contact.update(email: params[:email])
+  end
+
   # GET /contacts
   # GET /contacts.json
   def index
